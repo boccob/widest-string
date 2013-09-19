@@ -1,0 +1,34 @@
+@import 'sass-bootstrap/lib/bootstrap';
+
+.twitter-typeahead {
+  display: block !important;
+}
+
+.tt-hint {
+  @extend .form-control;
+  color: #999;
+}
+
+.tt-dropdown-menu {
+  @extend .dropdown-menu;
+}
+
+.tt-suggestion {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: $line-height-base;
+  color: $dropdown-link-color;
+  white-space: nowrap; // prevent links from randomly breaking onto new lines
+
+  p {
+    margin: 0;
+  }
+}
+
+.tt-is-under-cursor {
+  text-decoration: none;
+  color: $dropdown-link-hover-color;
+  background-color: $dropdown-link-hover-bg;
+}

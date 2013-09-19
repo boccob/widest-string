@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Widest String</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="font-family">Font family</label>
+                            <input type="text" class="form-control" id="font-family" placeholder="sans-serif">
+                        </div>
+                        <div class="form-group">
+                            <label for="font-size">Font size</label>
+                            <input type="text" class="form-control" id="font-size" placeholder="10px">
+                        </div>
+                        <div class="form-group">
+                            <label for="font-weight">Font weight</label>
+                            <input type="text" class="form-control" id="font-weight" placeholder="normal">
+                        </div>
+                        <div class="form-group">
+                            <label for="samples-number">Samples number</label>
+                            <input type="text" class="form-control" id="samples-number">
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#alphabet-mode" data-toggle="tab">Alphabet</a></li>
+                            <li><a href="#options-mode" data-toggle="tab">Options</a></li>
+                            <li><a href="#function-mode" data-toggle="tab">Function</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="alphabet-mode">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="alphabet" value="abcdefghijklmnopqrstuvwxyz1234567890">
+                                    <span class="help-block">Enter alphabet to find widest symbol</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="options-mode">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="options" value="abc, cde, efg">
+                                    <span class="help-block">Enter possible options through comma</span>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="function-mode">
+                                <p>Enter here body of function that will return all possible options.</p>
+                                <pre id="editor">var currentDate, dayNumber, initDate, monthNames, pad, weekDayNames, i, results;
+weekDayNames = ['dom.', 'lun.', 'mar.', 'mié.', 'jue.', 'vie.', 'sáb.'];
+monthNames = ['janv.', 'févr.', 'mars', 'avril', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'];
+pad = function(n) {
+    return ('0' + n).slice(-2);
+};
+initDate = new Date(2012, 0, 1);
+results = [];
+for (dayNumber = i = 0; i &lt;= 355; dayNumber = ++i) {
+    currentDate = new Date(initDate.getTime() + 1000 * 60 * 60 * 24 * dayNumber);
+    results.push("" + weekDayNames[currentDate.getDay()] + " " + (pad(currentDate.getDate())) + " " + monthNames[currentDate.getMonth()]);
+}
+return results;</pre>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary pull-right">Process</button>
+                    </form>
+                    <canvas class="sample-canvas" width="600" height="200"></canvas>
+                    <div class="result"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade modal-error" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/jquery/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:js scripts/main.js -->
+        <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
