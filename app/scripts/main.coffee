@@ -75,7 +75,7 @@ require ['jquery', 'lodash', 'ace', 'utils', 'fonts-list', 'font-weights', 'aceT
   updateCanvasSize(canvas)
   $(window).on 'resize', _.partial(updateCanvasSize, canvas)
 
-  ace.config.set 'workerPath', 'bower_components/ace/build/src-noconflict'
+  ace.config.set 'workerPath', 'bower_components/ace'
   editor = ace.edit 'editor'
   editor.setTheme 'ace/theme/dawn'
   editor.session.setMode 'ace/mode/javascript'

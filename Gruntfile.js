@@ -356,9 +356,13 @@ module.exports = function (grunt) {
             }
         },
         symlink: {
-            explicit: {
+            bower: {
                 src: yeomanConfig.app + '/bower_components',
                 dest: '.tmp/bower_components'
+            },
+            ace: {
+                src: yeomanConfig.app + '/bower_components/ace/build/src-min-noconflict',
+                dest: yeomanConfig.dist + '/bower_components/ace'
             }
         }
     });
@@ -390,7 +394,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'useminPrepare',
         'concurrent:dist',
-        'symlink',
+        'symlink:bower',
         'autoprefixer',
         'requirejs',
         'concat',
@@ -399,7 +403,8 @@ module.exports = function (grunt) {
         'modernizr',
         'copy:dist',
         'rev',
-        'usemin'
+        'usemin',
+        'symlink:ace'
     ]);
 
     grunt.registerTask('default', [
